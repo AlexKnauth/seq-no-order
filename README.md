@@ -18,7 +18,6 @@ Examples:
 #<syntax (* 1/2 2 (sqr 1))>
 > (parse-KE #'(KE #:v 1 #:m 2))
 #<syntax (* 1/2 2 (sqr 1))>
-  
 > (syntax-parse #'(1 2 3 4 5 6)
     [((~seq-no-order 6 2 y ...))
      #'(y ...)])
@@ -36,7 +35,6 @@ Examples:
     (syntax-parse stx
       [(#%app f ~no-order (~seq kw:keyword kw-arg:expr) ... arg:expr ...)
        #'(keyword-apply f '(kw ...) (list kw-arg ...) arg ... '())]))
-  
 > (parse-app #'(#%app f #:kw1 "kw1" "0" #:kw2 "kw2" "1"))
 #<syntax (keyword-apply f '(#:kw1 #:kw2) (list "kw1" "kw2") "0" "1" '())>
 ```
