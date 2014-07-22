@@ -11,8 +11,8 @@ Examples:
 > (define (parse-KE stx)
     (syntax-parse stx
       [(KE (~seq-no-order
-           (~seq #:m m)
-           (~seq #:v v)))
+            (~seq #:m m)
+            (~seq #:v v)))
        #'(* 1/2 m (sqr v))]))
 > (parse-KE #'(KE #:m 2 #:v 1))
 #<syntax (* 1/2 2 (sqr 1))>
