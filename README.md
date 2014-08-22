@@ -10,16 +10,6 @@ Examples:
 ```racket
 > (require syntax-parse-with-pattern-expanders
            seq-no-order)
-> (define (parse-KE stx)
-    (syntax-parse stx
-      [(KE (~seq-no-order
-            (~seq #:m m)
-            (~seq #:v v)))
-       #'(* 1/2 m (sqr v))]))
-> (parse-KE #'(KE #:m 2 #:v 1))
-#<syntax (* 1/2 2 (sqr 1))>
-> (parse-KE #'(KE #:v 1 #:m 2))
-#<syntax (* 1/2 2 (sqr 1))>
 > (syntax-parse #'(1 2 3 4 5 6)
     [((~seq-no-order 6 2 y ...))
      #'(y ...)])
@@ -33,6 +23,16 @@ Examples:
      #'(y ...)]
     [_ #f])
 #f
+> (define (parse-KE stx)
+    (syntax-parse stx
+      [(KE (~seq-no-order
+            (~seq #:m m)
+            (~seq #:v v)))
+       #'(* 1/2 m (sqr v))]))
+> (parse-KE #'(KE #:m 2 #:v 1))
+#<syntax (* 1/2 2 (sqr 1))>
+> (parse-KE #'(KE #:v 1 #:m 2))
+#<syntax (* 1/2 2 (sqr 1))>
 > (define (parse-app stx)
     (syntax-parse stx
       [(#%app f ~no-order (~seq kw:keyword kw-arg:expr) ... arg:expr ...)
