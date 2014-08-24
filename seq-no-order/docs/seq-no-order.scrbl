@@ -10,6 +10,8 @@
 
 @defmodule[seq-no-order]
 
+source code: @url["https://github.com/AlexKnauth/seq-no-order"]
+
 @defform[(~seq-no-order pat ...)]{
 a @racket[pattern-expander] for use with @racketmodname[syntax-parse-with-pattern-expanders].  
 
