@@ -1,7 +1,8 @@
 language: racket
 
 env:
- - RACKET_VERSION=HEAD
+ - RACKET_VERSION=6.0.1
+ - RACKET_VERSION=6.1
 
 before_install:
 - cd ..
