@@ -2,7 +2,7 @@
 
 (define collection 'multi)
 
-(define deps '("base" "syntax-parse-with-pattern-expanders"))
+(define deps '(["base" #:version "6.1.1"]))
 
 (define build-deps '("rackunit-lib" "scribble-lib"))
 

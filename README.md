@@ -6,12 +6,11 @@
 documentation: http://pkg-build.racket-lang.org/doc/seq-no-order/index.html
 
 Provides ~seq-no-order and ~no-order as pattern-expanders that work with
-[syntax-parse-with-pattern-expanders](https://github.com/AlexKnauth/syntax-parse-with-pattern-expanders).
+[syntax/parse](http://docs.racket-lang.org/syntax/stxparse.html) for racket version 6.1.1 or higher.
 
 Examples:
 ```racket
-> (require syntax-parse-with-pattern-expanders
-           seq-no-order)
+> (require syntax/parse seq-no-order)
 > (syntax-parse #'(1 2 3 4 5 6)
     [((~seq-no-order 6 2 y ...))
      #'(y ...)])

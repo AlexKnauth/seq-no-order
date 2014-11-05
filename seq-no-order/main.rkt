@@ -3,9 +3,9 @@
 (provide ~seq-no-order
          ~no-order)
 
-(require syntax-parse-with-pattern-expanders
+(require syntax/parse
          (for-syntax racket/base
-                     syntax-parse-with-pattern-expanders))
+                     syntax/parse))
 
 (module+ test
   (require rackunit
