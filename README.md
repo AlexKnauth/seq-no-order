@@ -1,7 +1,5 @@
-~seq-no-order
-============
-
-[![Build Status](https://travis-ci.org/AlexKnauth/seq-no-order.png?branch=master)](https://travis-ci.org/AlexKnauth/seq-no-order)
+~seq-no-order [![Build Status](https://travis-ci.org/AlexKnauth/seq-no-order.png?branch=master)](https://travis-ci.org/AlexKnauth/seq-no-order)
+===
 
 documentation: http://pkg-build.racket-lang.org/doc/seq-no-order/index.html
 
