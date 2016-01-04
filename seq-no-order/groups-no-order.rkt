@@ -6,7 +6,7 @@
 ;; https://stackoverflow.com/questions/34551203
 
 (require syntax/parse
-         seq-no-order
+         "seq-no-order.rkt"
          (for-syntax racket/base
                      racket/syntax
                      syntax/stx))
@@ -23,10 +23,10 @@
             (stx-map generate-temporaries #'[[member-pat ...] ...]))
           (define/with-syntax [group-tmp ...]
             (generate-temporaries #'[group-name ...]))
-          #'(~and (~seq-no-order (~and (~seq member-tmp ooo)
+          #'(~and (~seq-no-order (~and (~seq (~var member-tmp) ooo)
                                        member-pat)
                                  ... ...)
-                  (~parse [[group-tmp ooo] ooo] #'[[member-tmp ooo] ...])
+                  (~parse [[(~var group-tmp) ooo] ooo] #'[[member-tmp ooo] ...])
                   ...
                   (~parse [group-name ooo] #'[group-tmp ooo ooo])
                   ...))]))))
