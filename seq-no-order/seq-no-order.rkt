@@ -16,12 +16,14 @@
     [pattern (~not (~or (~literal ...) (~literal ...+)))])
   (define-splicing-syntax-class sno-pat
     #:attributes (or-pat)
+    [pattern {~seq {~and ({~literal ~optional} . _) pat:pat}}
+      #:with or-pat #'pat]
     [pattern (~seq pat:pat)
-             #:with or-pat #'(~once pat)]
+      #:with or-pat #'(~once pat)]
     [pattern (~seq pat:pat (~literal ...))
-             #:with or-pat #'pat]
+      #:with or-pat #'pat]
     [pattern (~seq pat:pat (~literal ...+))
-             #:with or-pat #'(~between pat 1 +inf.0)]
+      #:with or-pat #'(~between pat 1 +inf.0)]
     ))
 
 (define-syntax ~seq-no-order
@@ -72,6 +74,10 @@
                    #'(y ...)]
                   [_ #f])
                 #f)
+
+  (check-true (syntax-parse #'()
+                [(~no-order {~optional #:a} {~optional #:b}) #true]
+                [_                                           #false]))
   
   
   (define (parse-app stx)
